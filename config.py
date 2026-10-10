@@ -7,6 +7,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent
 
 class Config:
+    BASE_DIR = BASE_DIR  # expose project root on the Config class
     SECRET_KEY = os.getenv("FLASK_SECRET_KEY", "dev-secret-change-me-in-production-please")
     MAX_CONTENT_LENGTH = int(os.getenv("MAX_CONTENT_LENGTH", 16 * 1024 * 1024))  # 16 MB
     UPLOAD_FOLDER = BASE_DIR / os.getenv("UPLOAD_FOLDER", "uploads")
